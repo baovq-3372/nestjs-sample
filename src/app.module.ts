@@ -6,6 +6,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { DataSource } from 'typeorm';
+import { OrdersModule } from './orders/orders.module';
+import { OrderDetailsModule } from './order_details/order_details.module';
 
 import configuration from './config/index';
 
@@ -26,6 +28,8 @@ import configuration from './config/index';
     }),
     UsersModule,
     ProductsModule,
+    OrdersModule,
+    OrderDetailsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -12,11 +12,11 @@ export class ProductsService {
   ) {}
 
   create(createProductDto: ProductsDTO): Promise<Product> {
-    const product = new Product();
-
-    product.name = createProductDto.name;
-    product.price = createProductDto.price;
-    product.description = createProductDto.description;
+    const product = new Product({
+      name: createProductDto.name,
+      price: createProductDto.price,
+      description: createProductDto.description,
+    });
 
     return this.productsRepository.save(product);
   }
