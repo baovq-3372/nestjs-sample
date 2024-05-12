@@ -11,11 +11,13 @@ export class UsersService {
   ) {}
 
   create(createUserDto: UsersDTO): Promise<User> {
-    const user = new User();
-
-    user.name = createUserDto.name;
-    user.email = createUserDto.email;
-    user.password = createUserDto.password;
+    const user = new User({
+      name: createUserDto.name,
+      email: createUserDto.email,
+      password: createUserDto.password,
+      address: createUserDto.address,
+      phone: createUserDto.phone,
+    });
 
     return this.usersRepository.save(user);
   }
